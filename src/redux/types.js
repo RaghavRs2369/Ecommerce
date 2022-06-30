@@ -1,0 +1,8 @@
+export const ProductOne = "product one working"
+export const ProductTwo = "product two working"
+export const ProductThree = "product three working"
+export const ProductFour = "product four working"
+export const ProductFive = "product five working"
+export const ProductSix = "product six working"
+export const ProductSeven = "product seven working"
+export const ProductEight = "product eight working"

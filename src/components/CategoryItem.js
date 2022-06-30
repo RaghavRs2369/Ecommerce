@@ -37,6 +37,7 @@ font-weight: 600;
 `;
 
 export const CategoryItem = ({item}) => {
+
   return (
     <Container>
         <Image src={item.img}/>

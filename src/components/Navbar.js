@@ -72,6 +72,9 @@ const Navbar = () => {
     const clicked = () => {
         navigate('/register')
     }
+    const cartClicked = () => {
+        navigate('/cart')
+    }
   return (
       <Container>
         <Wrapper>
@@ -96,7 +99,7 @@ const Navbar = () => {
                   </Button>
                 </MenuItem>
                 <MenuItem>
-               <IconButton href='/cart'>
+               <IconButton onClick={cartClicked} >
                <Badge badgeContent={4} color="primary">
       <ShoppingCartOutlined  />
     </Badge>

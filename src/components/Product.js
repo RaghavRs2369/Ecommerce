@@ -1,5 +1,7 @@
 import  styled  from 'styled-components';
 import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
+import { IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Info = styled.div`
     opacity: 0;
@@ -66,19 +68,25 @@ const Icon = styled.div`
 
 
 const Product = ({item}) => {
+    const navigate = useNavigate()
+    const navTo =() => {
+        navigate('/Tshirts')
+    }
   return (
     <Container>
 <Circle/>
     <Image src = {item.img} />    
     <Info>
-        <Icon>
+        <IconButton onClick={navTo} sx={{
+            backgroundColor:'white'
+        }}>
             <ShoppingCartOutlined/>
-        </Icon>
+        </IconButton>
         <Icon>
             <SearchOutlined/>
         </Icon>
         <Icon>
-            <FavoriteBorderOutlined/>
+            <FavoriteBorderOutlined />
         </Icon>
         </Info> 
     </Container>

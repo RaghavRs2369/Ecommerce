@@ -1,5 +1,9 @@
 import { Facebook, Instagram, MailOutline, Phone, Room, Twitter } from "@mui/icons-material";
+import { Button } from "@mui/material";
 import styled from "styled-components"
+import { ProductFiveAction } from "../redux/actions";
+import { useDispatch } from "react-redux/es/hooks/useDispatch";
+import { useSelector } from "react-redux";
 
 const Container = styled.div`
     display: flex;
@@ -75,6 +79,8 @@ const Payment = styled.img`
 `;
 
 const Footer = () => {
+    const dispatch = useDispatch()
+    const baby = useSelector(state => state)
   return (
     <Container>
          <Left>
@@ -90,10 +96,11 @@ const Footer = () => {
                 <SocialIcon color="55ACEE">
                     <Twitter/>
                 </SocialIcon>
+                <Button onClick={() => dispatch(ProductFiveAction())}>hello</Button>
             </SocialContainer>
          </Left>
          <Center>
-            <Title>Useful Links</Title>
+            <Title>{baby}</Title>
             <List>
                 <ListItem>Home</ListItem>
                 <ListItem>Cart</ListItem>
@@ -101,13 +108,12 @@ const Footer = () => {
                 <ListItem>Woman Fashion</ListItem>
                 <ListItem>My Account</ListItem>
                 <ListItem>Order  Tracking</ListItem>
-                
             </List>
          </Center>
          <Right>
             <Title>Contact</Title>
             <ContactItem>
-              <Room style={{marginRight:"10px"}}  />   3/45 NGO Colony , Adyar , Chennai
+              <Room style={{marginRight:"10px"}}  /> 3/45 NGO Colony , Adyar , Chennai
             </ContactItem>
             <ContactItem><Phone style={{marginRight:"10px"}}/>+91 6375839854</ContactItem>
             <ContactItem><MailOutline style={{marginRight:"10px"}}/>raghu@wins.com</ContactItem>

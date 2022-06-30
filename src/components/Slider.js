@@ -1,10 +1,12 @@
 import { ArrowLeftOutlined , ArrowRightOutlined} from '@mui/icons-material';
-import { display, flexbox } from '@mui/system';
+
 import { useState } from 'react';
 import  styled  from 'styled-components';
 import { sliderItems } from '../data';
 import { Button } from '@mui/material';
-
+import { ProductTwoAction } from '../redux/actions';
+import { useDispatch } from 'react-redux/es/hooks/useDispatch';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const Container = styled.div`
       width: 100%;
@@ -79,6 +81,8 @@ letter-spacing: 3px;
 
 
 export const Slider = () => {
+ const things = useSelector(state => state)
+    const dispatch = useDispatch()
       const [slideIndex, setSlideIndex] = useState(0);
   const handleClick = (direction) => {
        if(direction==="left") {
@@ -99,9 +103,9 @@ export const Slider = () => {
               <Image src = {item.img} />
            </ImgContainer>
            <InfoContainer>
-                 <Title>{item.title}</Title>
+                 <Title>{things}</Title>
                  <Desc>{item.desc}</Desc>
-                 <Button href='#dummy'>SHOW NOW</Button>
+                 <Button onClick={() => dispatch(ProductTwoAction()) }>SHOW NOW</Button>
            </InfoContainer>
            </Slide>
   ))}
@@ -114,6 +118,7 @@ export const Slider = () => {
         
         
     </Container>
+    
   )
 }
 
